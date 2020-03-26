@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A testing take home exam",
   "scripts": {
-    "test": "mocha cart-price.spec.js"
+    "test": "mocha testCartApp.js"
   },
   "dependencies": {
     "request": "^2.88.2",
