@@ -12,11 +12,11 @@ var baseURL = "https://dev-commerce.yum-poc.com/v1/";
 
 describe("CartFunction", function(){
 
-  it("check cart price for 2 products", async function(){
+  it("check cart price for 2 products", function(){
     this.timeout(10000);
 
 
-    const menu = await request.get({url:baseURL+'stores/KFC0001/menu'},
+    const menu =  request.get({url:baseURL+'stores/KFC0001/menu'},
     		function(error,response,body){
     		var bodyObj = JSON.parse(body);    	
     		assert(response.statusCode).to.equal(200);
@@ -35,7 +35,7 @@ describe("CartFunction", function(){
     		    "delivery_address": null
     		  })
     	};
-	const createCart = await request(createCartOptions,
+	const createCart =  request(createCartOptions,
 			function(error,response,body){
 				var bodyObj = JSON.parse(body);    	
 				console.log(body);
@@ -56,7 +56,7 @@ describe("CartFunction", function(){
 	    	         quantity: 1
 	    		  })
 	    	};
-	const addProduct1 = await request(addProduct1Options,
+	const addProduct1 =  request(addProduct1Options,
 			function(error,response,body){
 				var bodyObj = JSON.parse(body);    	
 				console.log(body);
@@ -76,7 +76,7 @@ describe("CartFunction", function(){
 	    	         quantity: 1
 	    		  })
 	    	};
-	const addProduct2 = await request(addProduct2Options,
+	const addProduct2 =  request(addProduct2Options,
 			function(error,response,body){
 				var bodyObj = JSON.parse(body);    	
 				console.log(body);
