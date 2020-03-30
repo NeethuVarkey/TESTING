@@ -10,13 +10,13 @@ var baseURL = "https://dev-commerce.yum-poc.com/v1/";
 
 //const BEARER_TOKEN = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjExMDIwYTczIn0.eyJjdXN0b21lcl9pZCI6ImY4OTlkMjAwLTIzOTMtNDA4Zi1iMDdjLWRjNjQ3ZDMyZWUyOCIsInNjb3BlIjoiZnVsbF9zY29wZSIsImlhdCI6MTU2OTI2MzI0MSwiYXVkIjoidGVzdF9hdWRpZW5jZSIsImlzcyI6ImFwaWdlZSJ9.YvtZ6waTHKArXic9YOhpP0cMV-lWvBIFo0sv-2C9YkGFk7WHZJweANYn35fKa0X9imIxgNUPKLpSOZbrWLYpCP3-KUxNPfZAXbVk7LTvpQT0wtQJON5q5uYFw284oKF482fgz8okoSj4sWPiH3fWu_tuwoHx_ZqAJzhAOkUy8gDHHBNLzeJbFUCTi90XuT_cLDo7Hsrhn_txQf3C4T5o2hNrXFTIuMbrvv05namiyWbvP50eZ9Ts1Xs5yXTC8CygsuCJJnk6nqL03Tn5cHksb2hjJPP22ZvCcbEV50auv60M9VKBOONzzLMbGKLNzUkIbWmF82twAD0gg77aTzp2Iw";
 
-describe("CartFunction", function(){
+async describe("CartFunction", function(){
 
   it("check cart price for 2 products", function(){
     this.timeout(10000);
 
 
-    const menu =  request.get({url:baseURL+'stores/KFC0001/menu'},
+    const menu = await request.get({url:baseURL+'stores/KFC0001/menu'},
     		function(error,response,body){
     		var bodyObj = JSON.parse(body);    	
     		assert(response.statusCode).to.equal(200);
@@ -35,7 +35,7 @@ describe("CartFunction", function(){
     		    "delivery_address": null
     		  })
     	};
-	const createCart =  request(createCartOptions,
+	const createCart =await request(createCartOptions,
 			function(error,response,body){
 				var bodyObj = JSON.parse(body);    	
 				console.log(body);
@@ -56,7 +56,7 @@ describe("CartFunction", function(){
 	    	         quantity: 1
 	    		  })
 	    	};
-	const addProduct1 =  request(addProduct1Options,
+	const addProduct1 = await request(addProduct1Options,
 			function(error,response,body){
 				var bodyObj = JSON.parse(body);    	
 				console.log(body);
@@ -76,7 +76,7 @@ describe("CartFunction", function(){
 	    	         quantity: 1
 	    		  })
 	    	};
-	const addProduct2 =  request(addProduct2Options,
+	const addProduct2 = await request(addProduct2Options,
 			function(error,response,body){
 				var bodyObj = JSON.parse(body);    	
 				console.log(body);
