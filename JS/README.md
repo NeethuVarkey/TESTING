@@ -1,8 +1,6 @@
 # TESTING
 
-This was an Interview Question I got from Yum.com. The API's were provided by them
-
-In this take home exercise, you will test that a
+You will test that a
 cart API is able to return a total price for two products
 in the cart.
 
